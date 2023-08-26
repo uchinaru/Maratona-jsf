@@ -32,6 +32,66 @@ Agora selecione `Create a simple project`, pode selecionar um local do projeto n
 
 Para essa parte será preenchido o *Group Id*, *Artifact Id* , *Name*, *Description* e em *Packaging* selecione `WAR` e `Finish`.
 
-## Projeto configurado!
-Agora é resolver algum erro apontado pelo `Pom.xml` ou `Deployment`!
+Agora é resolver algum erro apontado pelo `Pom.xml` ou `Deployment` do projeto!
 
+## Configurando as dependencias.
+
+No Pom.xml inclua dentro da tag `<dependencies> </dependencies>`
+##### JSF
+```sh 
+        <dependency>
+            <groupId>org.glassfish</groupId>
+            <artifactId>javax.faces</artifactId>
+            <version>2.3.9</version>
+            <scope>compile</scope>
+        </dependency>
+```
+##### PRIMEFACES
+```
+        <dependency>
+            <groupId>org.primefaces</groupId>
+            <artifactId>primefaces</artifactId>
+            <version>12.0.0</version>
+            <scope>compile</scope>      
+        </dependency>
+```
+
+##### JAKARTA SERVLET
+```
+        <dependency>
+            <groupId>jakarta.servlet</groupId>
+            <artifactId>jakarta.servlet-api</artifactId>
+            <version>6.0.0</version>
+            <scope>provided</scope>
+        </dependency>
+```
+
+##### HIBERNATE
+```
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-validator</artifactId>
+            <version>8.0.0.Final</version>
+            <scope>compile</scope>
+        </dependency>
+```
+
+##### PERSISTENCIA HIBERNATE
+```
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-core</artifactId>
+            <version>5.6.15.Final</version>
+            <scope>compile</scope>
+        </dependency>
+```
+
+##### MYSQL
+```
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>8.0.30</version>
+            <scope>compile</scope>
+        </dependency>
+        ```
