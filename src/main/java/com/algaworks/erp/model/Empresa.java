@@ -12,13 +12,13 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 @Entity
-@Table(name = "empresa")
+@Table(name = "empresa")	
 public class Empresa implements Serializable {
 	
 	private static final long serialVersionUID = 1L;
@@ -27,23 +27,25 @@ public class Empresa implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
-	@Column(name = "nome_fantasia",length = 80)
+	@Column(name = "nome_fantasia",length = 80, nullable = false)
 	private String nomeFantasia;
 
-	@Column(name = "razao_social",length = 120)
+	@Column(name = "razao_social",length = 120, nullable = false)
 	private String razaoSocial;
 	
-	@Temporal(TemporalType.TIMESTAMP)
+	@Temporal(TemporalType.DATE)
 	@Column(name = "data_fundacao")
 	private Date dataFundacao;
 
-	@ManyToMany // Muitas empresas para um ramo de atividade.
-	@JoinColumn(name = "ramo_atividade_id")
+	@ManyToOne // Muitas empresas para um ramo de atividade.
+	@JoinColumn(name = "ramo_atividade_id", nullable = false)
 	private RamoAtividade ramoAtividade;
 	
 	@Enumerated(EnumType.STRING) // Anotacao para Enun informando que iremos guardar a string no banco.
+	@Column(length = 30, nullable = false)
 	private TipoEmpresa tipo;
 	
+	@Column(length = 18, nullable = false)
 	private String cnpj;
 
 	public Long getId() {

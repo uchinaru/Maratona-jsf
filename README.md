@@ -1,11 +1,11 @@
 # Maratona JSF AlgaWorks.
-###### Estudo de JSF, JPA E HIBERNATE
+##### Estudo de JSF, JPA E HIBERNATE 🚧
 
-### Apache Tomcat.
+## Configurar o tomcat na IDE Eclipse. 🐈
 A versão útilizada será a 9.0.80 x64 [Download Tomcat.](https://dlcdn.apache.org/tomcat/tomcat-9/v9.0.80/bin/apache-tomcat-9.0.80-windows-x64.zip)
 
-### Configurar o tomcat na IDE Eclipse.
-Abilitando a aba Server na IDE.
+Descompacte e começaremos abilitando a aba Server na IDE.
+
 ```
 Window > Show view > Server
 ```
@@ -22,10 +22,7 @@ Na aba `Server Locations` clique em `Use Tomcat installation`.
 Mais a baixo na aba `Server Options` desmarque a opção `Modules auto reload by default`.
 
 
-### Apache Maven Project.
-Usaremos o Maven nativo da IDE sem a necessidade de download.
-
-### Configurar o Apache Maven Project na IDE Eclipse.
+## Configurar o Apache Maven Project na IDE Eclipse. 🍃
 New > Project > pesquise por Maven e clique em `Maven Project`.
 
 Agora selecione `Create a simple project`, pode selecionar um local do projeto novo ou apenas clicar em `Next`.
@@ -34,10 +31,11 @@ Para essa parte será preenchido o *Group Id*, *Artifact Id* , *Name*, *Descript
 
 Agora é resolver algum erro apontado pelo `Pom.xml` ou `Deployment` do projeto!
 
-## Configurando as dependencias.
+## Configurando as dependencias. 📂
 
 No Pom.xml inclua dentro da tag `<dependencies> </dependencies>`
-##### JSF
+
+##### JSF ✔️
 ```sh 
         <dependency>
             <groupId>org.glassfish</groupId>
@@ -46,7 +44,7 @@ No Pom.xml inclua dentro da tag `<dependencies> </dependencies>`
             <scope>compile</scope>
         </dependency>
 ```
-##### PRIMEFACES
+##### PRIMEFACES ✔️
 ```
         <dependency>
             <groupId>org.primefaces</groupId>
@@ -56,7 +54,7 @@ No Pom.xml inclua dentro da tag `<dependencies> </dependencies>`
         </dependency>
 ```
 
-##### JAKARTA SERVLET
+##### JAKARTA SERVLET ✔️
 ```
         <dependency>
             <groupId>jakarta.servlet</groupId>
@@ -66,7 +64,7 @@ No Pom.xml inclua dentro da tag `<dependencies> </dependencies>`
         </dependency>
 ```
 
-##### HIBERNATE
+##### ~~HIBERNATE VALIDATOR REMOVIDO POR COMFLITO~~ ❌
 ```
         <dependency>
             <groupId>org.hibernate</groupId>
@@ -76,7 +74,7 @@ No Pom.xml inclua dentro da tag `<dependencies> </dependencies>`
         </dependency>
 ```
 
-##### PERSISTENCIA HIBERNATE
+##### PERSISTENCIA HIBERNATE ✔️
 ```
         <dependency>
             <groupId>org.hibernate</groupId>
@@ -86,7 +84,7 @@ No Pom.xml inclua dentro da tag `<dependencies> </dependencies>`
         </dependency>
 ```
 
-##### MYSQL
+##### MYSQL ✔️
 ```
         <dependency>
             <groupId>mysql</groupId>
@@ -94,4 +92,13 @@ No Pom.xml inclua dentro da tag `<dependencies> </dependencies>`
             <version>8.0.30</version>
             <scope>compile</scope>
         </dependency>
+```
+
+## Configuracoes adicionais 🛠️
+
+Caso esteja clonando o repositório uma primeira vez, abra o arquivo `Persistence.xml` altere as informações de seu banco de dados e descomente as linhas abaixo para rodar o `dados-iniciais.sql` executando a classe `SchemaGeneration.java`.
+
+```
+<property name="javax.persistence.schema-generation.database.action" value="drop-and-create" />
+<property name="javax.persistence.sql-load-script-source" value="META-INF/sql/dados-iniciais.sql"/>
 ```

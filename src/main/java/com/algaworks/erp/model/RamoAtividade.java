@@ -3,6 +3,7 @@ package com.algaworks.erp.model;
 import java.io.Serializable;
 import java.util.Objects;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -19,6 +20,7 @@ public class RamoAtividade implements Serializable {
 	@GeneratedValue( strategy = GenerationType.IDENTITY) //Cria o id ao inserir o dado e forca o banco a gerar de forma sequencial..
 	private Long id;
 	
+	@Column(nullable = false, length = 80)
 	private String descricao;
 
 	public Long getId() {

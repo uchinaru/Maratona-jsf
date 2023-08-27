@@ -58,13 +58,6 @@
 		
 		<dependency>
 			<groupId>org.hibernate</groupId>
-			<artifactId>hibernate-validator</artifactId>
-			<version>8.0.0.Final</version>
-			<scope>compile</scope>
-		</dependency>
-		
-		<dependency>
-			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-core</artifactId>
 			<version>5.6.15.Final</version>
 			<scope>compile</scope>
@@ -75,6 +68,7 @@
 			<artifactId>mysql-connector-java</artifactId>
 			<version>8.0.30</version>
 			<scope>compile</scope>
-		</dependency>		
+		</dependency>
+				
 	</dependencies>
 </project>
