@@ -31,7 +31,7 @@ Para essa parte será preenchido o *Group Id*, *Artifact Id* , *Name*, *Descript
 
 Agora é resolver algum erro apontado pelo `Pom.xml` ou `Deployment` do projeto!
 
-## Configuracoes adicionais 🛠️
+## Configuracoes adicionais ⚙️
 
 Caso esteja clonando o repositório uma primeira vez, abra o arquivo `Persistence.xml` altere as informações de seu banco de dados e descomente as linhas abaixo para rodar o `dados-iniciais.sql` executando a classe `SchemaGeneration.java`.
 
@@ -39,3 +39,13 @@ Caso esteja clonando o repositório uma primeira vez, abra o arquivo `Persistenc
 <property name="javax.persistence.schema-generation.database.action" value="drop-and-create" />
 <property name="javax.persistence.sql-load-script-source" value="META-INF/sql/dados-iniciais.sql"/>
 ```
+
+## Fix errors 🛠️
+Caso o `web.xml` apresente erro de nomeclatura das tags como a <display-name> </display-name>, substitua. 
+
+```sh
+xmlns="http://java.sun.com/xml/ns/javaee" 
+por
+xmlns="http://jakarta.ee/xml/ns/jakartaee"
+```
+
