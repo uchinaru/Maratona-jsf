@@ -11,6 +11,9 @@ import com.algaworks.erp.model.Empresa;
 public class SchemaGeneration {
 	
 	public static void main(String[] args) {
+		
+		// CLASSE PARA TESTAR OS COMANDOS CRIADOS //
+		
 		EntityManagerFactory emf = Persistence.createEntityManagerFactory("AlgaWorksPU");
 		EntityManager em = emf.createEntityManager();
 		

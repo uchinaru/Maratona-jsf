@@ -31,69 +31,6 @@ Para essa parte será preenchido o *Group Id*, *Artifact Id* , *Name*, *Descript
 
 Agora é resolver algum erro apontado pelo `Pom.xml` ou `Deployment` do projeto!
 
-## Configurando as dependencias. 📂
-
-No Pom.xml inclua dentro da tag `<dependencies> </dependencies>`
-
-##### JSF ✔️
-```sh 
-        <dependency>
-            <groupId>org.glassfish</groupId>
-            <artifactId>javax.faces</artifactId>
-            <version>2.3.9</version>
-            <scope>compile</scope>
-        </dependency>
-```
-##### PRIMEFACES ✔️
-```
-        <dependency>
-            <groupId>org.primefaces</groupId>
-            <artifactId>primefaces</artifactId>
-            <version>12.0.0</version>
-            <scope>compile</scope>      
-        </dependency>
-```
-
-##### JAKARTA SERVLET ✔️
-```
-        <dependency>
-            <groupId>jakarta.servlet</groupId>
-            <artifactId>jakarta.servlet-api</artifactId>
-            <version>6.0.0</version>
-            <scope>provided</scope>
-        </dependency>
-```
-
-##### ~~HIBERNATE VALIDATOR REMOVIDO POR COMFLITO~~ ❌
-```
-        <dependency>
-            <groupId>org.hibernate</groupId>
-            <artifactId>hibernate-validator</artifactId>
-            <version>8.0.0.Final</version>
-            <scope>compile</scope>
-        </dependency>
-```
-
-##### PERSISTENCIA HIBERNATE ✔️
-```
-        <dependency>
-            <groupId>org.hibernate</groupId>
-            <artifactId>hibernate-core</artifactId>
-            <version>5.6.15.Final</version>
-            <scope>compile</scope>
-        </dependency>
-```
-
-##### MYSQL ✔️
-```
-        <dependency>
-            <groupId>mysql</groupId>
-            <artifactId>mysql-connector-java</artifactId>
-            <version>8.0.30</version>
-            <scope>compile</scope>
-        </dependency>
-```
-
 ## Configuracoes adicionais 🛠️
 
 Caso esteja clonando o repositório uma primeira vez, abra o arquivo `Persistence.xml` altere as informações de seu banco de dados e descomente as linhas abaixo para rodar o `dados-iniciais.sql` executando a classe `SchemaGeneration.java`.
