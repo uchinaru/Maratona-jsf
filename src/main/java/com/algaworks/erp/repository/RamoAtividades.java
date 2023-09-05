@@ -2,13 +2,15 @@ package com.algaworks.erp.repository;
 
 import java.util.List;
 
+import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
 
 import com.algaworks.erp.model.RamoAtividade;
 
 public class RamoAtividades {
-
+	
+	@Inject
 	private EntityManager entitymanager;
 
 	public RamoAtividades() {

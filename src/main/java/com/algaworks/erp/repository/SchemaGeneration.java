@@ -19,10 +19,10 @@ public class SchemaGeneration {
 		
 		List<Empresa> listEmpresas = em.createQuery("From Empresa", Empresa.class).getResultList();
 
-			for(Empresa empresa: listEmpresas) {
-				System.out.println("Nome empresa: " + empresa.getNomeFantasia());
-			}
-			
+			listEmpresas.forEach(Empresa -> {
+				System.out.println(Empresa.getNomeFantasia());
+			});
+		
 		emf.close();
 		em.close();
 	}
