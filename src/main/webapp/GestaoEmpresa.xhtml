@@ -11,17 +11,60 @@
 	<h:outputStylesheet library="algaworks" name="estilo.css"/>
 </h:head>
 
-<body>
-
+<h:body>
 	<header>
 		<h:graphicImage library="algaworks" name="logo.png"/>
 	</header>
 	
-		<h:outputText value="Olá Mundo"/>
+	<div id="conteudo">
+		<h:form>
+			<h:panelGrid columns="2">
+				<h:outputLabel value="Razão Social:" for="razaoSocial"/>
+				<h:inputText id="razaoSocial"/>
+				
+				<h:outputLabel value="Nome Fantasia:" for="nomeFantasia"/>
+				<h:inputText id="nomeFantasia"/>
+				
+				<h:outputLabel value="Tipo Empresa:" for="tipo"/>
+				<h:selectOneMenu id="tipo">
+					<f:selectItem itemLabel="Selecione"/>
+					<f:selectItem itemLabel="MEI" valeu="MEI"/>
+				</h:selectOneMenu>
+
+				<h:outputLabel/>				
+				<h:commandButton value="Salvar"/>
+			</h:panelGrid>
+			
+			<h:dataTable>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Razão Social"/>
+					</f:facet>
+					<h:outputText value="AlgaWorks" />
+				</h:column>
+
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Nome Fantasia"/>
+					</f:facet>
+					<h:outputText value="AlgaWorks" />
+				</h:column>				
+				
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Tipo Empresa"/>
+					</f:facet>
+					<h:outputText value="LTDA" />
+				</h:column>
+								
+			</h:dataTable>
+			
+		</h:form>
+	</div>
 	
 	<footer>
 		Curso online JSF e PrimeFaces.
 	</footer>
-</body>
+</h:body>
 
 </html>
