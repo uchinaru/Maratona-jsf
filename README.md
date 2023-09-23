@@ -39,6 +39,7 @@ Caso esteja clonando o repositório uma primeira vez, abra o arquivo `Persistenc
 <property name="javax.persistence.schema-generation.database.action" value="drop-and-create" />
 <property name="javax.persistence.sql-load-script-source" value="META-INF/sql/dados-iniciais.sql"/>
 ```
+E não esqueça de adicionar o projeto ao `Tomcat` clicando com o botão direito do mouse `Add and Remove` e adicione e clique em `Finish`
 
 ## Fix errors 🛠️
 Caso o `web.xml` apresente erro de nomeclatura das tags como a <display-name> </display-name>, substitua. 
