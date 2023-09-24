@@ -112,5 +112,13 @@ public class Empresa implements Serializable {
 		Empresa other = (Empresa) obj;
 		return Objects.equals(id, other.id);
 	}
+
+	public TipoEmpresa getTipo() {
+		return tipo;
+	}
+
+	public void setTipo(TipoEmpresa tipo) {
+		this.tipo = tipo;
+	}
 	
 }
