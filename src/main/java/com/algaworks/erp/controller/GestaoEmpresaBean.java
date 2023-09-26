@@ -30,6 +30,15 @@ public class GestaoEmpresaBean implements Serializable{
 		return TipoEmpresa.values();
 	}
 	
+	//Navegacao implicita
+	/*
+	 * public String ajuda() { return "AjudaGestaoEmpresa"; }
+	 */	
+	
+	//Navegacao Explicita
+	public String ajuda() {
+		return "AjudaGestaoEmpresa?faces.redirect=true";
+	}
 	
 	public void salvar(){
 		System.out.println("Nome Fantasia: " + empresa.getNomeFantasia());
