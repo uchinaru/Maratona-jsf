@@ -1,6 +1,7 @@
 package com.algaworks.erp.model;
 
 import java.io.Serializable;
+import java.math.BigDecimal;
 import java.util.Date;
 import java.util.Objects;
 
@@ -44,6 +45,9 @@ public class Empresa implements Serializable {
 	@Enumerated(EnumType.STRING) // Anotacao para Enun informando que iremos guardar a string no banco.
 	@Column(length = 30, nullable = false)
 	private TipoEmpresa tipo;
+	
+	@Column(precision = 10, scale = 2)
+	private BigDecimal faturamento;
 	
 	@Column(length = 18, nullable = false)
 	private String cnpj;
@@ -94,6 +98,15 @@ public class Empresa implements Serializable {
 
 	public void setCnpj(String cnpj) {
 		this.cnpj = cnpj;
+	}
+	
+
+	public BigDecimal getFaturamento() {
+		return faturamento;
+	}
+
+	public void setFaturamento(BigDecimal faturamento) {
+		this.faturamento = faturamento;
 	}
 
 	@Override
