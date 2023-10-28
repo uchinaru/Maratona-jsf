@@ -1,16 +1,15 @@
 package com.algaworks.erp.controller;
 
 import java.io.Serializable;
+import java.util.List;
 
-import javax.enterprise.context.ApplicationScoped;
-import javax.enterprise.context.RequestScoped;
-import javax.enterprise.context.SessionScoped;
 import javax.faces.view.ViewScoped;
+import javax.inject.Inject;
 import javax.inject.Named;
-import com.algaworks.erp.model.Empresa;
-import com.algaworks.erp.model.TipoEmpresa;
 
-@SuppressWarnings("unused")
+import com.algaworks.erp.model.Empresa;
+import com.algaworks.erp.repository.Empresas;
+
 @Named
 // @RequestScoped // Cria uma instancia a cada requisão sendo requisoes do tipo get ou post. (F5 ou enviando formularios pelos botoes da pagina)
 @ViewScoped // Escopo se inicia quando o usuario carrega a pagina. e terima quando a sessao termina, entao as instancias so serao criadas ao carregar a pagina via F5 ou acessando.
@@ -19,30 +18,18 @@ import com.algaworks.erp.model.TipoEmpresa;
 public class GestaoEmpresaBean implements Serializable{
 
 	private static final long serialVersionUID = 1L;
-
-	private Empresa empresa = new Empresa(); 
 	
-	public Empresa getEmpresa() {
-		return empresa;
+	@Inject
+	private Empresas empresas;
+	
+	private List<Empresa> listarEmpresas;
+	
+	public void todasEmpresas() {
+		listarEmpresas = empresas.todasEmpresas();
 	}
 	
-	public TipoEmpresa[] getTipoEmpresa(){
-		return TipoEmpresa.values();
+	public List<Empresa> getListarEmpresas() {
+		return listarEmpresas;
 	}
 	
-	//Navegacao implicita
-	/*
-	 * public String ajuda() { return "AjudaGestaoEmpresa"; }
-	 */	
-	
-	//Navegacao Explicita
-	public String ajuda() {
-		return "AjudaGestaoEmpresa?faces.redirect=true";
-	}
-	
-	public void salvar(){
-		System.out.println("Nome Fantasia: " + empresa.getNomeFantasia());
-		System.out.println("Razão Social: " + empresa.getRazaoSocial());
-		System.out.println("Tipo Empresa: " + empresa.getTipo());
-	}
 }
