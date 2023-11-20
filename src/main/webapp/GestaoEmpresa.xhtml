@@ -1,28 +1,24 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml"
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:h="http://xmlns.jcp.org/jsf/html"
 	xmlns:f="http://xmlns.jcp.org/jsf/core"
 	xmlns:p="http://primefaces.org/ui"
-	xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	template="WEB-INF/template/layout.xhtml">
 
-<h:head>
-	<meta charset="UTF8" />
-	<title>Gestão Empresas</title>
-	<h:outputStylesheet library="algaworks" name="estilo.css" />
-	
-		<!--ira executar ao acessar a pagina-->
+<ui:define name="title-aba-navegador">
+	Maratona JSF - AlgaWorks
+</ui:define>
+
+<ui:define name="titulo">
+	Cadastro de empresas
+</ui:define>
+
+<ui:define name="conteudo">
+	<!--ira executar ao acessar a pagina-->
 	<f:metadata>
 		<f:viewAction action="#{gestaoEmpresaBean.todasEmpresas}" />
 	</f:metadata>
-	
-</h:head>
-
-<h:body>
-	<header>
-		<p:graphicImage library="algaworks" name="logo.png" />
-	</header>
-	<div id="conteudo">
-		<H2>Cadastro de Empresa</H2>
 		
 		<h:form id="formulario">
 			<p:dataTable value="#{gestaoEmpresaBean.listarEmpresas}" var="empresa" emptyMessage="Nenhum dado encontrado" paginator="true" rows="5" paginatorPosition="bottom" >
@@ -46,8 +42,6 @@
 			</p:dataTable>
 		</h:form>
 		
-	</div>
-	<footer> Curso online JSF e PrimeFaces. </footer>
-</h:body>
+</ui:define>
 
-</html>
+</ui:composition>
