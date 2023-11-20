@@ -25,23 +25,26 @@
 			<p:toolbar>
 				<p:toolbarGroup>
 					<div class="mrp-5">
-						<p:inputText placeholder="Digite para pesquisar" size="30"/>
+						<span class="ui-input-icon-right">
+							<i class="pi pi-search" />
+							<p:inputText placeholder="Digite para pesquisar" size="30"/>
+						</span>
 					</div>
-					<p:commandButton value="Pesquisar" icon="fa fa fa-search" />
+					<p:commandButton value="Pesquisar" styleClass="ui-button-raised"/>
 				</p:toolbarGroup>
 				
 				<p:toolbarGroup align="right">
 					<div class="mrp-2">
-						<p:commandButton value="Nova" icon="fa fa-plus"/>
+						<p:commandButton value="Nova" icon="fa fa-plus" styleClass="ui-button-raised"/>
 					</div>
 					<div class="mrp-2">
-						<p:commandButton title="Editar" icon="fa fa-edit"/>
+						<p:commandButton title="Editar" icon="fa fa-edit" styleClass="ui-button-raised"/>
 					</div>
 					<div class="mrp-2">
-						<p:commandButton title="Excluir" icon="fa fa-trash"/>
+						<p:commandButton title="Excluir" icon="fa fa-trash" styleClass="ui-button-raised ui-button-danger"/>
 					</div>
 					<div class="mrp-2">
-						<p:commandButton title="Exportar" icon="fa fa-file-excel-o"/>
+						<p:commandButton title="Exportar" icon="fa fa-file-excel-o" styleClass="ui-button-raised"/>
 					</div>
 				</p:toolbarGroup>
 			</p:toolbar>
