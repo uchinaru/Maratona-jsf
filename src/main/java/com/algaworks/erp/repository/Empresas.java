@@ -34,8 +34,8 @@ public class Empresas implements Serializable{
 	@SuppressWarnings("unchecked")
 	public List<Empresa> pesquisar(String nome){
 		
-		Query query = entitymanager.createQuery("from Empresa where nomeFantasia like :nomeFantasia");
-		query.setParameter("nomeFantasia", nome + "%");
+		Query query = entitymanager.createQuery("from Empresa where razaoSocial like :razaoSocial");
+		query.setParameter("razaoSocial", nome + "%");
 		
 		return query.getResultList();
 	}

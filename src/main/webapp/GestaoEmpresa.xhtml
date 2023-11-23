@@ -21,16 +21,18 @@
 	</f:metadata>
 		
 		<h:form id="formulario">
-		
+			<p:messages id="messagesForm"/>
+			
 			<p:toolbar>
 				<p:toolbarGroup>
 					<div class="mrp-5">
 						<span class="ui-input-icon-right">
 							<i class="pi pi-search" />
-							<p:inputText placeholder="Digite para pesquisar" size="30"/>
+							<p:inputText placeholder="Digite para pesquisar" size="30" value="#{gestaoEmpresaBean.termoPesquisa}" />
+							
 						</span>
 					</div>
-					<p:commandButton value="Pesquisar" styleClass="ui-button-raised"/>
+					<p:commandButton value="Pesquisar" styleClass="ui-button-raised" action="#{gestaoEmpresaBean.pesquisar}" update="empresaDataTable,messagesForm"/>
 				</p:toolbarGroup>
 				
 				<p:toolbarGroup align="right">
@@ -51,7 +53,7 @@
 
 			<p:spacer height="5" />
 			
-			<p:dataTable value="#{gestaoEmpresaBean.listarEmpresas}" var="empresa" emptyMessage="Nenhum dado encontrado" paginator="true" rows="5" paginatorPosition="bottom" >
+			<p:dataTable id="empresaDataTable" value="#{gestaoEmpresaBean.listarEmpresas}" var="empresa" emptyMessage="Nenhum dado encontrado" paginator="true" rows="5" paginatorPosition="bottom" >
 			
 				<p:column headerText="Razão Social" sortBy="#{empresa.razaoSocial}">
 					<h:outputText value="#{empresa.razaoSocial}"/>
