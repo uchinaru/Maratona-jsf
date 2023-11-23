@@ -11,7 +11,7 @@
 </ui:define>
 
 <ui:define name="titulo">
-	<h1>Cadastro de empresas</h1>
+	Cadastro de empresas
 </ui:define>
 
 <ui:define name="conteudo">
@@ -35,7 +35,7 @@
 				
 				<p:toolbarGroup align="right">
 					<div class="mrp-2">
-						<p:commandButton value="Nova" icon="fa fa-plus" styleClass="ui-button-raised"/>
+						<p:commandButton value="Nova" icon="fa fa-plus" styleClass="ui-button-raised" onclick="PF('empresaDialogWidgetVar').show();"/>
 					</div>
 					<div class="mrp-2">
 						<p:commandButton title="Editar" icon="fa fa-edit" styleClass="ui-button-raised"/>
@@ -70,6 +70,16 @@
 				</p:column>		
 								
 			</p:dataTable>
+			
+		 	<p:dialog header="Nova Empresa" widgetVar="empresaDialogWidgetVar" modal="true" resizable="false" showEffect="fade">
+		 		<div >
+		 			<p:outputLabel value="Nome Fantasia:" />
+		 			<p:inputText />
+		 		</div>
+		 		
+		 		<p:commandButton value="Confirmar"/>
+		 	</p:dialog>
+			
 		</h:form>
 		
 </ui:define>
