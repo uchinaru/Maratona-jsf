@@ -3,13 +3,16 @@ package com.algaworks.erp.controller;
 import java.io.Serializable;
 import java.util.List;
 
+import javax.faces.convert.Converter;
 import javax.faces.view.ViewScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
 
 import com.algaworks.erp.model.Empresa;
+import com.algaworks.erp.model.RamoAtividade;
 import com.algaworks.erp.model.TipoEmpresa;
 import com.algaworks.erp.repository.Empresas;
+import com.algaworks.erp.repository.RamoAtividades;
 import com.algaworks.erp.util.FacesMessages;
 
 @Named
@@ -27,9 +30,12 @@ public class GestaoEmpresaBean implements Serializable{
 	@Inject
 	private FacesMessages messages;
 	
+	@Inject
+	private RamoAtividades ramoAtividades;
+
 	private String termoPesquisa;
 	private List<Empresa> listarEmpresas;
-	
+	private RamoAtividadeConverter converterRamoAtividade;
 	
 	public void pesquisar() {
 		listarEmpresas = empresas.pesquisar(termoPesquisa);
@@ -41,6 +47,13 @@ public class GestaoEmpresaBean implements Serializable{
 	
 	public void todasEmpresas() {
 		listarEmpresas = empresas.todasEmpresas();
+	}
+	
+	public List<RamoAtividade> completarRamoAtividade(String termo){
+		List<RamoAtividade> listRamoAtividades = ramoAtividades.pesquisar(termo);
+		
+		converterRamoAtividade = new RamoAtividadeConverter(listRamoAtividades);
+		return listRamoAtividades;
 	}
 	
 	public List<Empresa> getListarEmpresas() {
@@ -57,5 +70,9 @@ public class GestaoEmpresaBean implements Serializable{
 	
 	public TipoEmpresa[] getTiposEmpresa() {
 		return TipoEmpresa.values();
+	}
+
+	public RamoAtividadeConverter getConverterRamoAtividade() {
+		return converterRamoAtividade;
 	}
 }

@@ -1,14 +1,16 @@
 package com.algaworks.erp.repository;
 
 import java.util.List;
-
+import java.io.Serializable;
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
 
 import com.algaworks.erp.model.RamoAtividade;
 
-public class RamoAtividades {
+
+public class RamoAtividades implements Serializable {
+	private static final long serialVersionUID = 1L;
 	
 	@Inject
 	private EntityManager entitymanager;
