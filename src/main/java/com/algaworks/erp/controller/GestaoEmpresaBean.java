@@ -8,6 +8,7 @@ import javax.faces.view.ViewScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
 
+import com.algaworks.erp.CadastroEmpresaService;
 import com.algaworks.erp.model.Empresa;
 import com.algaworks.erp.model.RamoAtividade;
 import com.algaworks.erp.model.TipoEmpresa;
@@ -32,10 +33,15 @@ public class GestaoEmpresaBean implements Serializable{
 	
 	@Inject
 	private RamoAtividades ramoAtividades;
-
+	
+	@Inject
+	private CadastroEmpresaService cadastroEmpresa;
+	
+	private Empresa empresa;
 	private String termoPesquisa;
 	private List<Empresa> listarEmpresas;
 	private RamoAtividadeConverter converterRamoAtividade;
+
 	
 	public void pesquisar() {
 		listarEmpresas = empresas.pesquisar(termoPesquisa);
@@ -56,6 +62,15 @@ public class GestaoEmpresaBean implements Serializable{
 		return listRamoAtividades;
 	}
 	
+	public void salvar() {
+		cadastroEmpresa.salvar(empresa);
+		messages.info("Empresa Salva com sucesso!");
+	}
+	
+	public void prepararNovaEmpresa() {
+		empresa = new Empresa();
+	}
+	
 	public List<Empresa> getListarEmpresas() {
 		return listarEmpresas;
 	}
@@ -74,5 +89,9 @@ public class GestaoEmpresaBean implements Serializable{
 
 	public RamoAtividadeConverter getConverterRamoAtividade() {
 		return converterRamoAtividade;
+	}
+	
+	public Empresa getEmpresa() {
+		return empresa;
 	}
 }
