@@ -1,12 +1,19 @@
 package com.algaworks.erp.controller;
 
 import java.io.Serializable;
+import java.util.Arrays;
 import java.util.List;
 
+import javax.faces.application.FacesMessage;
+import javax.faces.context.FacesContext;
 import javax.faces.convert.Converter;
 import javax.faces.view.ViewScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
+
+import org.jboss.weld.context.RequestContext;
+import org.primefaces.PrimeFaces;
+import org.primefaces.context.PrimeRequestContext;
 
 import com.algaworks.erp.CadastroEmpresaService;
 import com.algaworks.erp.model.Empresa;
@@ -41,7 +48,6 @@ public class GestaoEmpresaBean implements Serializable{
 	private String termoPesquisa;
 	private List<Empresa> listarEmpresas;
 	private RamoAtividadeConverter converterRamoAtividade;
-
 	
 	public void pesquisar() {
 		listarEmpresas = empresas.pesquisar(termoPesquisa);
@@ -64,7 +70,9 @@ public class GestaoEmpresaBean implements Serializable{
 	
 	public void salvar() {
 		cadastroEmpresa.salvar(empresa);
-		messages.info("Empresa Salva com sucesso!");
+		
+		messages.info("Cadastro efetuado com sucesso","formulario:messagesForm");
+		todasEmpresas();
 	}
 	
 	public void prepararNovaEmpresa() {

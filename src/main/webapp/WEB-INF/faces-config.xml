@@ -7,7 +7,10 @@
 	<application>
 		<locale-config>
 			<default-locale>pt_BR</default-locale>
+			<supported-locale>pt_BR</supported-locale>
 		</locale-config>
+		
+		<message-bundle>com.maratonajsf.erp.messages_pt_BR</message-bundle>
 	</application>
 
 </faces-config>
