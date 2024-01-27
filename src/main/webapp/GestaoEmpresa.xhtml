@@ -23,7 +23,7 @@
 		<h:form id="formulario">
 			<p:messages id="messagesForm"/>
 			
-			<p:toolbar>
+			<p:toolbar id="toolbar">
 				<p:toolbarGroup>
 					<div class="mrp-5">
 						<span class="ui-input-icon-right">
@@ -42,10 +42,10 @@
 						</p:commandButton>
 					</div>
 					<div class="mrp-2">
-						<p:commandButton title="Editar" icon="fa fa-edit" styleClass="ui-button-raised"/>
+						<p:commandButton title="Editar" icon="fa fa-edit" styleClass="ui-button-raised" disabled="#{not gestaoEmpresaBean.empresaSelected}"/>
 					</div>
 					<div class="mrp-2">
-						<p:commandButton title="Excluir" icon="fa fa-trash" styleClass="ui-button-raised ui-button-danger"/>
+						<p:commandButton title="Excluir" icon="fa fa-trash" styleClass="ui-button-raised ui-button-danger" disabled="#{not gestaoEmpresaBean.empresaSelected}"/>
 					</div>
 					<div class="mrp-2">
 						<p:commandButton title="Exportar" icon="fa fa-file-excel-o" styleClass="ui-button-raised"/>
@@ -55,8 +55,20 @@
 
 			<p:spacer height="5" />
 			
-			<p:dataTable id="empresaDataTable" value="#{gestaoEmpresaBean.listarEmpresas}" var="empresa" emptyMessage="Nenhum dado encontrado" paginator="true" rows="5" paginatorPosition="bottom" >
-			
+			<p:dataTable id="empresaDataTable" 
+						 value="#{gestaoEmpresaBean.listarEmpresas}"
+						 var="empresa" 
+						 emptyMessage="Nenhum dado encontrado" 
+						 paginator="true" 
+						 rows="5" 
+						 paginatorPosition="bottom" 
+						 selectionMode="single" 
+						 selection="#{gestaoEmpresaBean.empresa}"
+						 rowKey="#{empresa.id}">
+				
+				<p:ajax event="rowSelect" update="formulario:toolbar"/>
+				<p:ajax event="rowUnselect" update="formulario:toolbar"/>
+				
 				<p:column headerText="Razão Social" sortBy="#{empresa.razaoSocial}">
 					<h:outputText value="#{empresa.razaoSocial}"/>
 				</p:column>

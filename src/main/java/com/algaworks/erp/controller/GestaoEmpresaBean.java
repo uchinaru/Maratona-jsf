@@ -75,6 +75,10 @@ public class GestaoEmpresaBean implements Serializable{
 		todasEmpresas();
 	}
 	
+	public boolean isEmpresaSelected() {
+		return empresa != null && empresa.getId() != null;
+	}
+	
 	public void prepararNovaEmpresa() {
 		empresa = new Empresa();
 	}
@@ -102,4 +106,11 @@ public class GestaoEmpresaBean implements Serializable{
 	public Empresa getEmpresa() {
 		return empresa;
 	}
+
+	public void setEmpresa(Empresa empresa) {
+		this.empresa = empresa;
+	}
+	
+	
+
 }
