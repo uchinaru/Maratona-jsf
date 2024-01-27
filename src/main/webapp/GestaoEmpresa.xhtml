@@ -76,8 +76,10 @@
 			</p:dataTable>
 			
 		 	<p:dialog id="modalNovaEmpresa" header="Nova Empresa" widgetVar="empresaDialogWidgetVar" modal="true" resizable="false" showEffect="fade">
+		 		
+		 		<p:defaultCommand target="btnSalvar" scope="modalNovaEmpresa"/>
 		 		<p:messages id="cadastroEmpresasMessages"/>
-		 	
+		 		
 				<h:panelGrid columns="2" id="empresaPanelGrid" rendered="#{gestaoEmpresaBean.empresa ne null}">
 					<p:outputLabel value="Razão Social: " for="razaoSocial"/>
 					<p:inputText id="razaoSocial" size="80" maxlength="120" value="#{gestaoEmpresaBean.empresa.razaoSocial}"/>
@@ -108,7 +110,7 @@
 									value="#{gestaoEmpresaBean.empresa.ramoAtividade}"/>
 					
 					<p:outputLabel/>
-					<p:commandButton value="Salvar" actionListener="#{gestaoEmpresaBean.salvar}" update="empresaDataTable cadastroEmpresasMessages" oncomplete="if (!args.validationFailed) PF('empresaDialogWidgetVar').hide()" process="modalNovaEmpresa"/>
+					<p:commandButton id="btnSalvar" value="Salvar" actionListener="#{gestaoEmpresaBean.salvar}" update="empresaDataTable cadastroEmpresasMessages" oncomplete="if (!args.validationFailed) PF('empresaDialogWidgetVar').hide()" process="modalNovaEmpresa"/>
 				</h:panelGrid>
 		 	</p:dialog>
 			
