@@ -37,7 +37,9 @@
 				
 				<p:toolbarGroup align="right">
 					<div class="mrp-2">
-						<p:commandButton value="Nova" icon="fa fa-plus" styleClass="ui-button-raised" oncomplete="PF('empresaDialogWidgetVar').show()" actionListener="#{gestaoEmpresaBean.prepararNovaEmpresa}" update="modalNovaEmpresa" process="@this"/>
+						<p:commandButton value="Nova" icon="fa fa-plus" styleClass="ui-button-raised" oncomplete="PF('empresaDialogWidgetVar').show()" actionListener="#{gestaoEmpresaBean.prepararNovaEmpresa}" update="modalNovaEmpresa" process="@this">
+							<p:resetInput target="modalNovaEmpresa"/>
+						</p:commandButton>
 					</div>
 					<div class="mrp-2">
 						<p:commandButton title="Editar" icon="fa fa-edit" styleClass="ui-button-raised"/>

@@ -17,8 +17,9 @@ public class FacesMessages implements Serializable{
 		
 		FacesContext.getCurrentInstance().addMessage(null, faceMessage); // adicionando a mensagem ao JSF
 		
-		if (!"".equalsIgnoreCase(componente))
+		if (!"".equalsIgnoreCase(componente)) {
 		PrimeFaces.current().ajax().update(componente); //Atualizando o componente da tela.
+		}
 	}
 
 	public void info(String msg) {
