@@ -29,7 +29,6 @@
 						<span class="ui-input-icon-right">
 							<i class="pi pi-search" />
 							<p:inputText id="termoPesquisa" placeholder="Digite para pesquisar" size="30" value="#{gestaoEmpresaBean.termoPesquisa}" />
-							
 						</span>
 					</div>
 					<p:commandButton value="Pesquisar" styleClass="ui-button-raised" action="#{gestaoEmpresaBean.pesquisar}" update="empresaDataTable messagesForm" process="@this termoPesquisa"/>
@@ -47,7 +46,9 @@
 						</p:commandButton>
 					</div>
 					<div class="mrp-2">
-						<p:commandButton title="Excluir" icon="fa fa-trash" styleClass="ui-button-raised ui-button-danger" disabled="#{not gestaoEmpresaBean.empresaSelected}" actionListener="#{gestaoEmpresaBean.excluir}" update="empresaDataTable toolbar messagesForm" process="@this"/>
+						<p:commandButton title="Excluir" icon="fa fa-trash" styleClass="ui-button-raised ui-button-danger" disabled="#{not gestaoEmpresaBean.empresaSelected}" actionListener="#{gestaoEmpresaBean.excluir}" update="empresaDataTable toolbar messagesForm" process="@this">
+							<p:confirm icon="pi pi-exclamation-triangle" header="Confirmação" message="Deseja continuar a ação?"/>
+						</p:commandButton>
 					</div>
 					<div class="mrp-2">
 						<p:commandButton title="Exportar" icon="fa fa-file-excel-o" styleClass="ui-button-raised"/>
