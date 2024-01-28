@@ -71,8 +71,15 @@ public class GestaoEmpresaBean implements Serializable{
 	public void salvar() {
 		cadastroEmpresa.salvar(empresa);
 		
-		messages.info("Cadastro efetuado com sucesso","formulario:messagesForm");
+		messages.info("Registro salvo!","formulario:messagesForm");
 		todasEmpresas();
+	}
+	
+	public void excluir() {
+		cadastroEmpresa.excluir(empresa);
+		empresa = null;
+		todasEmpresas();
+		messages.info("Registro deletado");
 	}
 	
 	public void prepararNovaEmpresa() {

@@ -47,7 +47,7 @@
 						</p:commandButton>
 					</div>
 					<div class="mrp-2">
-						<p:commandButton title="Excluir" icon="fa fa-trash" styleClass="ui-button-raised ui-button-danger" disabled="#{not gestaoEmpresaBean.empresaSelected}"/>
+						<p:commandButton title="Excluir" icon="fa fa-trash" styleClass="ui-button-raised ui-button-danger" disabled="#{not gestaoEmpresaBean.empresaSelected}" actionListener="#{gestaoEmpresaBean.excluir}" update="empresaDataTable toolbar messagesForm" process="@this"/>
 					</div>
 					<div class="mrp-2">
 						<p:commandButton title="Exportar" icon="fa fa-file-excel-o" styleClass="ui-button-raised"/>
