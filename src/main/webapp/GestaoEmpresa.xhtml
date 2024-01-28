@@ -51,7 +51,9 @@
 						</p:commandButton>
 					</div>
 					<div class="mrp-2">
-						<p:commandButton title="Exportar" icon="fa fa-file-excel-o" styleClass="ui-button-raised"/>
+						<p:commandButton title="Exportar" icon="fa fa-file-excel-o" styleClass="ui-button-raised" ajax="false">
+							<p:dataExporter type="xls" target="empresaDataTable" fileName="Relatório de empresas" />
+						</p:commandButton>
 					</div>
 				</p:toolbarGroup>
 			</p:toolbar>
