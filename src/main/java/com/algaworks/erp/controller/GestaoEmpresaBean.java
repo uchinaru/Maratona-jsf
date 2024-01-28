@@ -75,14 +75,18 @@ public class GestaoEmpresaBean implements Serializable{
 		todasEmpresas();
 	}
 	
-	public boolean isEmpresaSelected() {
-		return empresa != null && empresa.getId() != null;
-	}
-	
 	public void prepararNovaEmpresa() {
 		empresa = new Empresa();
 	}
 	
+	public void prepararEdicao() {
+		converterRamoAtividade = new RamoAtividadeConverter(Arrays.asList(empresa.getRamoAtividade()));
+	}
+	
+	public boolean isEmpresaSelected() {
+		return empresa != null && empresa.getId() != null;
+	}
+
 	public List<Empresa> getListarEmpresas() {
 		return listarEmpresas;
 	}

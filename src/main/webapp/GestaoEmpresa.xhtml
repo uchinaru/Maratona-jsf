@@ -42,7 +42,9 @@
 						</p:commandButton>
 					</div>
 					<div class="mrp-2">
-						<p:commandButton title="Editar" icon="fa fa-edit" styleClass="ui-button-raised" disabled="#{not gestaoEmpresaBean.empresaSelected}"/>
+						<p:commandButton title="Editar" icon="fa fa-edit" styleClass="ui-button-raised" disabled="#{not gestaoEmpresaBean.empresaSelected}" actionListener="#{gestaoEmpresaBean.prepararEdicao}" oncomplete="PF('empresaDialogWidgetVar').show()" update="modalNovaEmpresa" process="@this">
+							<p:resetInput target="modalNovaEmpresa"/>
+						</p:commandButton>
 					</div>
 					<div class="mrp-2">
 						<p:commandButton title="Excluir" icon="fa fa-trash" styleClass="ui-button-raised ui-button-danger" disabled="#{not gestaoEmpresaBean.empresaSelected}"/>
